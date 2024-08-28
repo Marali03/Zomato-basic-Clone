@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/top.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/options.css">
+    <link rel="stylesheet" href="styles/collections.css">
+    <link rel="stylesheet" href="styles/localities.css">
+    <link rel="stylesheet" href="styles/app-main.css">
+    <link rel="stylesheet" href="styles/explore.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    
+    <link rel="icon" href="data:image/png;base64,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">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="user-icon">
+                <i data-feather="user"></i>
+            </div>
+            <div class="nav-left">
+                <div class="nav-elemts"><i data-feather="smartphone"></i><a href="#">Get the App</a></div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-elemts"><a href="#">Investor Relations</a></div>
+                <div class="nav-elemts"><a href="#">Add Restaurants</a></div>
+                <div class="nav-elemts"><a href="#">Log in</a></div>
+                <div class="nav-elemts"><a href="#">Sign up</a></div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="top">
+            <img src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png" alt="bg-img" class="bg-img">
+            <div class="center-content">
+                <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="logo" class="main-logo">
+                <h1>Discover best food & drinks in <span class="city">Hyderabad</span></h1>
+                <div class="search-container">
+                    <div class="location">
+                        <i data-feather="map-pin"></i>
+                        <input type="text" placeholder="Hyderabad" class="text-box"/>
+                        <i data-feather="chevron-down"></i>
+                    </div>
+                    <div class="line"></div>
+                    <div class="search">
+                        <div class="search-icon">
+                            <i data-feather="search"></i>
+                        </div>
+                        <input class="text-box" type="text" 
+                        placeholder="Search for restaurant, cusine or a dish "
+                        value="">`
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+        <section class="main-body">
+            <div class="options">
+                <div class="option">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/webFrontend/e5b8785c257af2a7f354f1addaf37e4e1647364814.jpeg?output-format=webp&fit=around|402:360&crop=402:360;*,*" alt= " image1" ></i>
+                    </div>
+                    <div class="info">
+                        <div class="info-tite">Order Online</div>
+                        <div class="info-description"><p>Stay home and order to your doorstep</p></div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/webFrontend/d026b357feb0d63c997549f6398da8cc1647364915.jpeg?output-format=webp&fit=around|402:360&crop=402:360;*,*"alt= " image2" ></i>
+                    </div>
+                    <div class="info">
+                        <div class="info-tite">Dining</div>
+                        <div class="info-description"><p>View the city's favourite dining venues</p></div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/371de657644f1b5818fcb5d83387c8c91722851940.png?output-format=webp&fit=around|402:360&crop=402:360;*,*" alt= " image1" ></i>
+                    </div>
+                    <div class="info">
+                        <div class="info-tite">Live Events</div>
+                        <div class="info-description"><p>Discover India’s best events & concerts</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="collections">
+                <div class="heading-2">Collections</div>
+                <div class="collection-discp">
+                    <div class="heading-6">Explore curated lists of top restaurants, cafes, pubs, and bars in Hyderabad, based on trends</div>
+                    <a  class="see-more" href="/"> 
+                        All collections in Hyderabad
+                        <i data-feather="chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <section class="collections-list">
+                <div class="sub-collections">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/data/collections/684397cd092de6a98862220e8cc40aca_1721907131.png?output-format=webp" alt="img1">
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-info">
+                                Top Trending Spots
+                            <div class="overlay-places">33 Places
+                                <i data-feather="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-collections">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/data/collections/7771cf3a18e1da2916794d3998260c69_1709812287.png?output-format=webp" alt="img2">
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-info">
+                                Newly Opened Places
+                            <div class="overlay-places">16 Places
+                                <i data-feather="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-collections">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/data/collections/4d8bbdfe1fe2b4cfa8aad710676fcb61_1674847218.jpg?output-format=webp" alt="img3">
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-info">
+                                Religional Flavors
+                            <div class="overlay-places">32 Places
+                                <i data-feather="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-collections">
+                    <div class="image">
+                        <img src="https://b.zmtcdn.com/data/collections/ce8f94a179d859d01f94c441d67ef5ad_1706256874.png?output-format=webp" alt="img4">
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-info">
+                                The Legends of Hyderabad
+                            <div class="overlay-places">25 Places
+                                <i data-feather="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </section>
+            <div class="localities">
+                <div class="heading">Popular localities in and around <span class="city">Hyderabad</span></div>
+            </div>
+            <div class="localities-list">
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Jubilee Hills
+                        </div>
+                        <div class="places">406 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Gachibowli
+                        </div>
+                        <div class="places">799 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Banjara Hills
+                        </div>
+                        <div class="places">416 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Hitech City
+                        </div>
+                        <div class="places">375 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Madhapur
+                        </div>
+                        <div class="places">876 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Kondapur
+                        </div>
+                        <div class="places">613 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Kukatpally
+                        </div>
+                        <div class="places">1470 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality row">
+                    <div class="left">
+                        <div class="locality-name">
+                            Begumpet
+                        </div>
+                        <div class="places">159 Places</div>
+                    </div>
+                    <div class="right">
+                        <i data-feather="chevron-right"></i>
+                    </div>
+                </div>
+                <div class="locality">
+                    <div class="center">
+                        See more
+                        <i data-feather="chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section class="app-section">
+        <div class="content">
+          <div class="phone-image">
+            <img
+              src="https://b.zmtcdn.com/data/o2_assets/f773629053b24263e69f601925790f301680693809.png"
+            />
+          </div>
+          <div class="app-info">
+            <div class="phone-title">Get the Zomato app</div>
+            <div class="app-description">
+              We will send you a link, open it on your phone to download the app
+            </div>
+
+            <section class="option-selector">
+              <div class="radio-option">
+                <input id="email" type="radio" name="radio" checked />
+                <label for="email">Email</label>
+              </div>
+              <div class="radio-option">
+                <input id="phone" type="radio" name="radio" />
+                <label for="phone">Phone</label>
+              </div>
+            </section>
+
+            <section class="email-input">
+              <input type="email" placeholder="Email" class="email" />
+              <button class="btn">Share App Link</button>
+            </section>
+
+            <section class="store">
+                <div class="caption">Download app from</div>
+                <div class="buttons">
+                  <img
+                    src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"
+                  />
+                  <img
+                    src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png"
+                  />
+                </div>
+            </section>
+        </section>
+            
+        <section class="explore-options">
+            <div class="explore-heading">Explore options near me</div>
+            <div class="accordions-list">
+              <div class="accordion">
+                <div class="accordion-container">
+                  <div class="accordion-title">Popular cuisines near me</div>
+                  <i class="fa fa-chevron-down fa-2x"></i>
+                </div>
+                <div class="accordion-data ">
+                  <ul>
+                    <li>Bakery food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Beverages food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Biryani food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Burger food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Chinese food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Continental food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Desserts food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Italian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Kebab food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mithai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Momos food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mughlai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>North Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pasta food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pizza food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Rolls food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Sandwich food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Shake food near me</li>
+                    <span class="small-circle"></span>
+                    <li>South Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Street food near me</li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="accordion">
+                <div class="accordion-container">
+                  <div class="accordion-title">
+                    Popular restaurant types near me
+                  </div>
+                  <i class="fa fa-chevron-down fa-2x"></i>
+                </div>
+                <div class="accordion-data">
+                  <ul>
+                    <li>Bakery food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Beverages food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Biryani food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Burger food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Chinese food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Continental food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Desserts food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Italian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Kebab food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mithai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Momos food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mughlai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>North Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pasta food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pizza food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Rolls food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Sandwich food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Shake food near me</li>
+                    <span class="small-circle"></span>
+                    <li>South Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Street food near me</li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="accordion">
+                <div class="accordion-container">
+                  <div class="accordion-title">Top restraunt chains</div>
+                  <i class="fa fa-chevron-down fa-2x"></i>
+                </div>
+                <div class="accordion-data">
+                  <ul>
+                    <li>Bakery food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Beverages food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Biryani food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Burger food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Chinese food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Continental food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Desserts food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Italian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Kebab food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mithai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Momos food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mughlai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>North Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pasta food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pizza food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Rolls food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Sandwich food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Shake food near me</li>
+                    <span class="small-circle"></span>
+                    <li>South Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Street food near me</li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="accordion">
+                <div class="accordion-container">
+                  <div class="accordion-title">Cities we deliver to</div>
+                  <i class="fa fa-chevron-down fa-2x"></i>
+                </div>
+                <div class="accordion-data">
+                  <ul>
+                    <li>Bakery food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Beverages food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Biryani food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Burger food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Chinese food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Continental food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Desserts food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Italian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Kebab food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mithai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Momos food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Mughlai food near me</li>
+                    <span class="small-circle"></span>
+                    <li>North Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pasta food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Pizza food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Rolls food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Sandwich food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Shake food near me</li>
+                    <span class="small-circle"></span>
+                    <li>South Indian food near me</li>
+                    <span class="small-circle"></span>
+                    <li>Street food near me</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </section>      
+    </main>
+        <footer>
+            <div class="footer-data">
+                
+                <div class="top-section row">
+                    <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&amp;crop=198:42;*,*" alt="zomato logo"/>
+                    <div class="dropdowns row">
+                        <div class="dropdown row">
+                            <img src="images/flag.png" alt="India logo"/>
+                            <div class="dropdown-text">India</div>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                    
+                        <div class="dropdown row">
+                            <i data-feather="globe"></i>
+                            <div class="dropdown-text">English</div>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                    
+                </div>
+
+                <div class="middle-section row">
+                    <div class="footer-links">
+                        <h6 class="footer-title">About Zomato</h6>
+                        <ul>
+                        <li>Who we are</li>
+                        <li>Blog</li>
+                        <li>Work with us</li>
+                        <li>Investor Relations</li>
+                        <li>Report Fraud</li>
+                        <li>Contact us</li>
+                        </ul>
+                    </div>
+            
+                    <div class="footer-links">
+                        <h6 class="footer-title">Zomaverse</h6>
+                        <ul>
+                        <li>Zomato</li>
+                        <li>Blinkit</li>
+                        <li>Feeding India</li>
+                        <li>Hyperpure</li>
+                        <li>Zomaland</li>
+                        </ul>
+                    </div>
+            
+                    <div class="footer-links column">
+                        <div class="footer-links">
+                        <h6 class="footer-title">For Restaurants</h6>
+                        <ul>
+                            <li>Partner With Us</li>
+                            <li>Apps for you</li>
+                        </ul>
+                        </div>
+            
+                        <div class="footer-links">
+                        <h6 class="footer-title">For Enterprises</h6>
+                        <ul>
+                            <li>Zomato For Enterprises</li>
+                        </ul>
+                        </div>
+                    </div>
+            
+                    <div class="footer-links">
+                        <h6 class="footer-title">Learn more</h6>
+                        <ul>
+                        <li>Privacy</li>
+                        <li>Security</li>
+                        <li>Terms</li>
+                        <li>Sitemap</li>
+                        </ul>
+                    </div>
+            
+                    <div class="footer-links">
+                        <h6 class="footer-title">Social Links</h6>
+                        <div class="socials">
+                        <ul class="row">
+                            <li><i class="fa fa-linkedin"></i></li>
+                            <li><i class="fa fa-instagram"></i></li>
+                            <li><i class="fa fa-twitter"></i></li>
+                            <li><i class="fa fa-youtube"></i></li>
+                            <li><i class="fa fa-facebook"></i></li>
+                        </ul>
+                        </div>
+                        <div class="buttons column">
+                        <img
+                            src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"
+                        />
+                        <img
+                            src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png"
+                        />
+                        </div>
+                    </div>
+                </div>
+                <hr class="line-style"/>
+                <div class="end-section">
+                By continuing past this page, you agree to our Terms of Service,
+                Cookie Policy, Privacy Policy and Content Policies. All trademarks are
+                properties of their respective owners. 2008-2023 © Zomato™ Ltd. All
+                rights reserved.
+                </div>
+                <div class="end">A simple Zomato™ clone Made by Marali with Basics.</div>
+            </div>
+        </footer>
+    </main>
+    <script>
+        feather.replace();
+    </script>
+    <script src="./scripts/accordian.js"></script>
+</body>
+</html>

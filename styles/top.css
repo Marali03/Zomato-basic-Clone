@@ -1,0 +1,154 @@
+.top{
+    
+    position: relative;
+    height: calc(100vh - 30rem);
+    margin-bottom: 4rem;
+    min-height: 42rem;
+    max-height: 57rem;
+}
+main .bg-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    min-height: 42rem;
+    max-height: 57rem;
+    width: 100%;
+    object-fit: cover;
+}
+main .center-content{
+    position: absolute;
+    bottom: calc(50% - 11.1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    width: 100%;  
+    font-size: 1.6rem;
+
+}
+main .main-logo{
+    height: 6rem;
+    width: 30rem;
+    position: relative;
+}
+
+main  h1{
+    color: white;
+    font-weight: 200;
+    font-size: 3.6rem;
+    margin-top: 3rem;
+    align-items: center;
+}
+main  .city{
+    font-weight: 200;
+}
+
+main .top .search-container{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: none;
+    border-radius:0.8rem ;
+    margin-top: 3rem;
+    height: 5.4rem;
+    align-items: center;
+}
+main .top .search-container > div{
+    display: flex;
+    align-items: center;
+}
+main .top .search-container .location{
+    width: 24rem;
+    padding: 0 1rem;
+    justify-content: space-around;
+}
+main .top .search-container .location svg{ 
+    color: rgba(216, 73, 73, 0.884);
+}
+main .top .search-container .line{
+    width: 0rem;
+    height: 2rem;
+    border: 0.05rem solid rgba(207, 207, 207);
+    
+}
+main .top .search-container .search {
+    border-radius: 0.8rem;
+    border-color: white;
+    width: 53rem;
+    display: flex;
+    border: none;
+}
+main .search-container .search input{
+    width: 100%; /* can also use flex:1;*/
+    border: none;
+}
+main .search-container .search .search-icon{
+    width: 6rem;
+    margin: -1px -0.6rem -1px -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+main .search-container .search .search-icon svg{
+    color: rgba(128, 128, 128, 0.84);
+
+}
+/* Initially borderless text box */
+main .top .search-container .text-box {
+    border: none;
+    outline: none;  /* Removes the default outline */
+    padding: 1px 2px;
+    background-color: white; /* Optional: to visually indicate the text box */
+    transition: border 0.3s ease; /* Smooth transition for border appearance */
+}
+    
+main .top .search-container input{
+    font-size: 1.4rem;
+}
+
+@media (max-width: 800px) {
+    main .main-logo {
+      height: 3rem;
+      width: 16rem;
+      position: relative;
+    }
+  
+    main .top .search_container {
+      width: calc(100% - 2.4rem);
+      flex-direction: column;
+    }
+  
+    main .top .search_container .location {
+      margin-top: 1.2rem;
+      margin-bottom: 0.8rem;
+      justify-content: space-between;
+      width: 100%;
+      gap: 2rem;
+      height: 5rem;
+    }
+  
+    main .top .search_container .location input {
+      flex: 1;
+    }
+  
+    main .top .search_container .search {
+      margin-top: 1.8rem;
+      background-color: white;
+      padding: 1.5rem 1rem;
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    main .top .search_container .search .search_icon {
+      width: fit-content;
+    }
+  
+    main .top .search_container .search input {
+      margin-left: 1.5rem;
+    }
+  }
